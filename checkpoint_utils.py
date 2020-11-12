@@ -12,10 +12,13 @@ def save_checkpoint(model, image_datasets, arch, hidden_units, save_dir):
                   'state_dict': model.state_dict()}
 
     if not os.path.isdir(save_dir):
-        print(f'{save_dir} is not a directory. Creating a new directory with name: {save_dir}')
+        print()
+        print(f'Checking --save_dir value. {save_dir} is not a directory. Creating a new directory with name: {save_dir}')
         os.mkdir(save_dir)
 
     checkpoint_file = os.path.join(save_dir, 'checkpoint.pth')
+    print(f'Checkpoint is saved at relative path: {save_dir}/checkpoint.pth')
+
     torch.save(checkpoint, checkpoint_file)
 
 
